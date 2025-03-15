@@ -2,11 +2,11 @@ name: Keep Server Alive
 
 on:
   schedule:
-    - cron: "*/2 * * * *"  # Runs every 2 minutes
+    - cron: "*/5 * * * *"  # Runs every 5 minutes
   push:
     branches:
-      - main  # Runs when code is pushed to the main branch
-  workflow_dispatch:  # Allows manual triggering
+      - main
+  workflow_dispatch:
 
 jobs:
   ping_server:
@@ -20,5 +20,8 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Run ping script continuously
-        run: nohup node ping_my_server.js &
+      - name: Kill existing Node processes
+        run: pkill -f "node ping_my_server.js" || true
+
+      - name: Run ping script
+        run: node ping_my_server.js
