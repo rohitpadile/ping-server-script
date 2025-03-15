@@ -17,8 +17,5 @@ jobs:
         with:
           node-version: "18"
 
-      # - name: Install dependencies (if required)
-      #   run: npm install || true  # Skip if no package.json
-
-      - name: Run ping script
-        run: node ping_my_server.js
+      - name: Run ping script continuously
+        run: node ping_my_server.js &

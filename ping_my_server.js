@@ -14,7 +14,10 @@ function pingServer() {
   });
 }
 
+// Run immediately and then every 2 minutes
 pingServer();
+setInterval(pingServer, 120000);  // 120000 ms = 2 minutes
+
 
 // const keepServerAlive = () => {
 //     fetch("https://chatapp-springboot-render.onrender.com/api/ind/v1/health")
