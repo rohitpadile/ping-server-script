@@ -16,7 +16,7 @@ function pingServer() {
 
 // Run immediately and then every 5 minutes
 pingServer();
-setInterval(pingServer, 300000);  // 300000 ms = 5 minutes
+setInterval(pingServer, 3600000);  // 300000 ms = 5 minutes
 
 // const keepServerAlive = () => {
 //     fetch("https://chatapp-springboot-render.onrender.com/api/ind/v1/health")
