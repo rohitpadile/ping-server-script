@@ -1,27 +1,27 @@
-name: Keep Server Alive
+# name: Keep Server Alive
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"  # Runs every 5 minutes
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "*/5 * * * *"  # Runs every 5 minutes
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
-jobs:
-  ping_server:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+# jobs:
+#   ping_server:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: "18"
 
-      - name: Kill existing Node processes
-        run: pkill -f "node ping_my_server.js" || true
+#       - name: Kill existing Node processes
+#         run: pkill -f "node ping_my_server.js" || true
 
-      - name: Run ping script
-        run: node ping_my_server.js
+#       - name: Run ping script
+#         run: node ping_my_server.js
